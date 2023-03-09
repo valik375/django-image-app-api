@@ -3,6 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 from .models import Image
 from .serializers import ImageSerializers, ImageDetailSerializers
+from .permissions import ImagePermissions
 
 
 class ImageView(GenericViewSet, mixins.CreateModelMixin, mixins.ListModelMixin, mixins.RetrieveModelMixin,
@@ -13,4 +14,4 @@ class ImageView(GenericViewSet, mixins.CreateModelMixin, mixins.ListModelMixin, 
         return ImageSerializers
     pagination_class = None
     queryset = Image.objects.all()
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (ImagePermissions, IsAuthenticated)
