@@ -15,7 +15,9 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+IMAGE_STORE_PATH = 'images'
+IMAGE_DIR = f'{BASE_DIR}/media/{IMAGE_STORE_PATH}'
+IMAGE_TOKEN = 'ns312ORrL83tE1Tomwvu'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'auth_app',
+    'image_app',
 ]
 
 MIDDLEWARE = [
@@ -135,16 +138,12 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
-        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
-        'drf_social_oauth2.authentication.SocialAuthentication',
     ),
     'DEFAULT_PAGINATION_CLASS': 'django_image_app_api.custom_components.custom_pagination.CustomPagination',
     'PAGE_SIZE': 5,
     'COERCE_DECIMAL_TO_STRING': False,
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
 AUTH_USER_MODEL = 'auth_app.CustomUser'
