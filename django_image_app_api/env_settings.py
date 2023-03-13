@@ -1,7 +1,5 @@
 # DEBUG = True
 
-API_DOCS_ENABLED = True
-
 NO_REPLY_EMAIL = 'test@test.com'
 
 CORS_ALLOW_ALL_ORIGINS = False

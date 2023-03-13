@@ -2,5 +2,5 @@
 /.idea/
 /db.sqlite3
 /media/*
-/givetips/env_settings.py
+/django_image_app_api/env_settings.py
 /images/*

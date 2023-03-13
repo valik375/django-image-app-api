@@ -17,7 +17,12 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 IMAGE_STORE_PATH = 'images'
 IMAGE_DIR = f'{BASE_DIR}/media/{IMAGE_STORE_PATH}'
-IMAGE_TOKEN = 'ns312ORrL83tE1Tomwvu'
+
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5500",
+    "http://127.0.0.1:8000"
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -28,7 +33,8 @@ SECRET_KEY = 'django-insecure-s&h!sl(0ivep#+r##19l_(hl$v_5s32a71edgn=*&(f1fg=iry
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+INTERNAL_IPS = ['127.0.0.1']
 
 
 # Application definition
